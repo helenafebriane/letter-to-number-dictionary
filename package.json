@@ -1,0 +1,16 @@
+{
+  "name": "text-converter",
+  "version": "1.0.0",
+  "description": "Program konversi teks",
+  "main": "converter.js",
+  "scripts": {
+    "start": "node converter.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0"
+  }
+}
