@@ -3,30 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dictionary Processor</title>
+  <title>Letter to Number Processor</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f6fa;
+      background-color: #1e1e1e;
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
       align-items: flex-start;
       min-height: 100vh;
+      color: #e0e0e0;
     }
     .container {
-      background: #fff;
+      background: #2c2c2c;
       padding: 30px 40px;
       margin-top: 50px;
+      margin-bottom: 50px;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       width: 100%;
-      max-width: 600px;
+      max-width: 700px;
     }
     h1 {
       text-align: center;
-      color: #2f3640;
+      color: #f0f0f0;
+      /* color: #2f3640; */
     }
     label {
       font-weight: bold;
@@ -35,47 +38,181 @@
       margin-bottom: 5px;
     }
     input[type="text"] {
-      width: 100%;
+      width: 70%;
       padding: 10px;
       border-radius: 6px;
-      border: 1px solid #ccc;
+      border: 1px solid #555;
       font-size: 16px;
+      background-color: #3a3a3a;
+      color: #f0f0f0;
     }
     button {
       margin-top: 20px;
-      width: 100%;
+      width: 20%;
       padding: 12px;
       font-size: 16px;
       border: none;
       border-radius: 6px;
-      background-color: #0097e6;
-      color: #fff;
+      /* background-color: #0097e6; */
+      background-color: #555; /* gray */
+      color: #f0f0f0;
       cursor: pointer;
       transition: background 0.3s;
     }
     button:hover {
-      background-color: #40739e;
+      background-color: #777;
     }
     .output {
+      display: none;
       margin-top: 30px;
-      background-color: #f1f2f6;
+      background-color: #3a3a3a;
       padding: 15px 20px;
       border-radius: 8px;
       font-family: monospace;
       white-space: pre-wrap;
+      color: #f0f0f0;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Dictionary Processor</h1>
+    <h1>Letter to Number</h1>
 
-    <label for="textInput">Masukkan Kalimat:</label>
-    <input type="text" id="textInput" placeholder="Contoh: Titanic">
+    <label for="textInput">Enter a sentence:</label>
+    <input type="text" id="textInput" placeholder="Example: Titanic">
+    <button id="processBtn">Process</button>
+    <div class="input-group">
+      <div class="output" id="output"></div>
+    </div>
 
-    <button id="processBtn">Proses</button>
+    <div style="text-align:center; margin-top: 20px;">
+      <h2 style="display:inline-block; text-align:center; margin-top:10px">Dictionary</h2>
+      <table style="border:2px solid #333; border-collapse:collapse; margin:auto; text-align:center;">
+        <tr>
+          <th style="border:1px solid #333; padding:6px;">A</th>
+          <th style="border:1px solid #333; padding:6px;">B</th>
+          <th style="border:1px solid #333; padding:6px;">C</th>
+          <th style="border:1px solid #333; padding:6px;">D</th>
+          <th style="border:1px solid #333; padding:6px;">E</th>
+          <th style="border:1px solid #333; padding:6px;">F</th>
+          <th style="border:1px solid #333; padding:6px;">G</th>
+          <th style="border:1px solid #333; padding:6px;">H</th>
+          <th style="border:1px solid #333; padding:6px;">I</th>
+          <th style="border:1px solid #333; padding:6px;">J</th>
+          <th style="border:1px solid #333; padding:6px;">K</th>
+          <th style="border:1px solid #333; padding:6px;">L</th>
+          <th style="border:1px solid #333; padding:6px;">M</th>
+          <th style="border:1px solid #333; padding:6px;">N</th>
+          <th style="border:1px solid #333; padding:6px;">O</th>
+          <th style="border:1px solid #333; padding:6px;">P</th>
+          <th style="border:1px solid #333; padding:6px;">Q</th>
+          <th style="border:1px solid #333; padding:6px;">R</th>
+          <th style="border:1px solid #333; padding:6px;">S</th>
+          <th style="border:1px solid #333; padding:6px;">T</th>
+          <th style="border:1px solid #333; padding:6px;">U</th>
+          <th style="border:1px solid #333; padding:6px;">V</th>
+          <th style="border:1px solid #333; padding:6px;">W</th>
+          <th style="border:1px solid #333; padding:6px;">X</th>
+          <th style="border:1px solid #333; padding:6px;">Y</th>
+          <th style="border:1px solid #333; padding:6px;">Z</th>
+        </tr>
+        <tr>
+          <td style="border:1px solid #333; padding:6px;">0</td>
+          <td style="border:1px solid #333; padding:6px;">1</td>
+          <td style="border:1px solid #333; padding:6px;">1</td>
+          <td style="border:1px solid #333; padding:6px;">1</td>
+          <td style="border:1px solid #333; padding:6px;">2</td>
+          <td style="border:1px solid #333; padding:6px;">3</td>
+          <td style="border:1px solid #333; padding:6px;">3</td>
+          <td style="border:1px solid #333; padding:6px;">3</td>
+          <td style="border:1px solid #333; padding:6px;">4</td>
+          <td style="border:1px solid #333; padding:6px;">5</td>
+          <td style="border:1px solid #333; padding:6px;">5</td>
+          <td style="border:1px solid #333; padding:6px;">5</td>
+          <td style="border:1px solid #333; padding:6px;">5</td>
+          <td style="border:1px solid #333; padding:6px;">5</td>
+          <td style="border:1px solid #333; padding:6px;">6</td>
+          <td style="border:1px solid #333; padding:6px;">7</td>
+          <td style="border:1px solid #333; padding:6px;">7</td>
+          <td style="border:1px solid #333; padding:6px;">7</td>
+          <td style="border:1px solid #333; padding:6px;">7</td>
+          <td style="border:1px solid #333; padding:6px;">7</td>
+          <td style="border:1px solid #333; padding:6px;">8</td>
+          <td style="border:1px solid #333; padding:6px;">9</td>
+          <td style="border:1px solid #333; padding:6px;">9</td>
+          <td style="border:1px solid #333; padding:6px;">9</td>
+          <td style="border:1px solid #333; padding:6px;">9</td>
+          <td style="border:1px solid #333; padding:6px;">9</td>
+        </tr>
+      </table>
 
-    <div class="output" id="output"></div>
+      <h2 style="display:inline-block; text-align:center; margin-top:1px;"></h2>
+      <table style="border:2px solid #333; border-collapse:collapse; margin:auto; text-align:center;">
+        <tr>
+          <th style="border:1px solid #333; padding:6px;">a</th>
+          <th style="border:1px solid #333; padding:6px;">b</th>
+          <th style="border:1px solid #333; padding:6px;">c</th>
+          <th style="border:1px solid #333; padding:6px;">d</th>
+          <th style="border:1px solid #333; padding:6px;">e</th>
+          <th style="border:1px solid #333; padding:6px;">f</th>
+          <th style="border:1px solid #333; padding:6px;">g</th>
+          <th style="border:1px solid #333; padding:6px;">h</th>
+          <th style="border:1px solid #333; padding:6px;">i</th>
+          <th style="border:1px solid #333; padding:6px;">j</th>
+          <th style="border:1px solid #333; padding:6px;">k</th>
+          <th style="border:1px solid #333; padding:6px;">l</th>
+          <th style="border:1px solid #333; padding:6px;">m</th>
+          <th style="border:1px solid #333; padding:6px;">n</th>
+          <th style="border:1px solid #333; padding:6px;">o</th>
+          <th style="border:1px solid #333; padding:6px;">p</th>
+          <th style="border:1px solid #333; padding:6px;">q</th>
+          <th style="border:1px solid #333; padding:6px;">r</th>
+          <th style="border:1px solid #333; padding:6px;">s</th>
+          <th style="border:1px solid #333; padding:6px;">t</th>
+          <th style="border:1px solid #333; padding:6px;">u</th>
+          <th style="border:1px solid #333; padding:6px;">v</th>
+          <th style="border:1px solid #333; padding:6px;">w</th>
+          <th style="border:1px solid #333; padding:6px;">x</th>
+          <th style="border:1px solid #333; padding:6px;">y</th>
+          <th style="border:1px solid #333; padding:6px;">z</th>
+          <th style="border:1px solid #333; padding:6px;"> </th>
+        </tr>
+        <tr>
+          <td style="border:1px solid #333; padding:6px;">9</td>
+          <td style="border:1px solid #333; padding:6px;">8</td>
+          <td style="border:1px solid #333; padding:6px;">8</td>
+          <td style="border:1px solid #333; padding:6px;">8</td>
+          <td style="border:1px solid #333; padding:6px;">7</td>
+          <td style="border:1px solid #333; padding:6px;">6</td>
+          <td style="border:1px solid #333; padding:6px;">6</td>
+          <td style="border:1px solid #333; padding:6px;">6</td>
+          <td style="border:1px solid #333; padding:6px;">5</td>
+          <td style="border:1px solid #333; padding:6px;">4</td>
+          <td style="border:1px solid #333; padding:6px;">4</td>
+          <td style="border:1px solid #333; padding:6px;">4</td>
+          <td style="border:1px solid #333; padding:6px;">4</td>
+          <td style="border:1px solid #333; padding:6px;">4</td>
+          <td style="border:1px solid #333; padding:6px;">3</td>
+          <td style="border:1px solid #333; padding:6px;">2</td>
+          <td style="border:1px solid #333; padding:6px;">2</td>
+          <td style="border:1px solid #333; padding:6px;">2</td>
+          <td style="border:1px solid #333; padding:6px;">2</td>
+          <td style="border:1px solid #333; padding:6px;">2</td>
+          <td style="border:1px solid #333; padding:6px;">1</td>
+          <td style="border:1px solid #333; padding:6px;">0</td>
+          <td style="border:1px solid #333; padding:6px;">0</td>
+          <td style="border:1px solid #333; padding:6px;">0</td>
+          <td style="border:1px solid #333; padding:6px;">0</td>
+          <td style="border:1px solid #333; padding:6px;">0</td>
+          <th style="border:1px solid #333; padding:6px;">0</th>
+        </tr>
+      </table>
+    </div>
   </div>
 
 <script>
@@ -83,11 +220,11 @@
   const input = document.getElementById('textInput');
   const output = document.getElementById('output');
 
-  // Tombol klik
   btn.addEventListener('click', async () => {
     const text = input.value.trim();
     if (!text) {
-      output.textContent = "Masukkan kalimat dulu!";
+      output.textContent = "Enter a sentence first!";
+      // output.style.display = "none";
       return;
     }
 
@@ -100,21 +237,24 @@
       const data = await res.json();
 
       if (data.error) {
+        output.style.display = "block";
         output.textContent = "Error: " + data.error;
         return;
       }
 
+      output.style.display = "block";
       output.textContent = `
-        Input: ${data.input}
+Input: ${data.input}
 
-        Step 1: ${data.step1}
-        Step 2: ${data.step2}
-        Step 3: ${data.step3}
-        Step 4: ${data.step4}
-        Step 5: ${data.step5}
-        `;
+Step 1: ${data.step1}
+Step 2: ${data.step2}
+Step 3: ${data.step3}
+Step 4: ${data.step4}
+Step 5: ${data.step5}
+ `;
     } catch (err) {
-      output.textContent = "Terjadi kesalahan: " + err.message;
+      output.style.display = "block";
+      output.textContent = "Error: " + err.message;
     }
   });
 
